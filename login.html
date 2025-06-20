@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Controle de gastos</title>
+    <script src="index/backend/index.js"></script>
+    <script src="index/backend/validate.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-app-compact.js"></script>
+    <link rel="stylesheet" href="index/css/index.css" />
+    <link rel="stylesheet" href="index/css/global.css">
+</head>
+
+<body>
+    <form>
+        <div class="form-field">
+            <div><label for="email">Email</label></div>
+            <input type="email" name="email" onchange="onChangeEmail()" id="email" placeholder="seu@email.com">
+            <div class="error" id="email-required-error">Email é obrigatório</div>
+            <div class="error" id="email-invalid-error">Email inválido</div>
+        </div>
+        <div>
+            <div><label for="password">Senha</label></div>
+            <input type="password" name="password" id="password" onchange="onChangePassword()" placeholder="Senha">
+            <div class="error" id="password-required-error">Senha é obrigatória</div>
+        </div>
+        <div>
+            <button type="button" class="clear" id="recover-password-button" disabled="true">Recuperar senha</button>
+        </div>
+        <div>
+            <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">Entrar</button>
+        </div>
+        <div>
+            <button type="button" class="outline" onclick="register()">Registrar</button>
+        </div>
+    </form>
+
+
+
+    <link rel="stylesheet" href="index/css/index.css" />
+    <link rel="stylesheet" href="index/css/global.css">
+
+    <script src="index/backend/index.js"></script>
+    <script src="index/backend/validate.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-auth-compat.js"></script>
+       <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyASzcZS0E-VRFqeMHhAKV-WdzC-NX9JjOs",
+            authDomain: "controle-de-gastos-f4f00.firebaseapp.com",
+            projectId: "controle-de-gastos-f4f00",
+            storageBucket: "controle-de-gastos-f4f00.firebasestorage.app",
+            messagingSenderId: "522123028659",
+            appId: "1:522123028659:web:24f3c865728dcc2fdf68c6"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        console.log('antes');
+        firebase.auth().signInWithEmailAndPassword("daniloparanhos09@email.com", "123456").then(response => {
+            console.log('success', response)
+        }).catch(error => {
+            console.log('error', error)
+        });
+        console.log('depois')
+    </script>
+</body>
+
+
+
+</html>
